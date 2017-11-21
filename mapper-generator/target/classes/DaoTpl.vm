@@ -1,0 +1,9 @@
+package $packageName;
+
+#foreach ($clz in $importedClass)
+import $clz;
+#end
+
+public interface $className extends BaseDao<$entityName> {
+
+}
