@@ -13,8 +13,30 @@ import org.apache.ibatis.io.Resources;
  */
 public class Main {
 	public static void main(String[] args) {
-		oneGennerator();
+		mysqlGenneratorkOne();
 	}
+
+	/**
+	 * mysql数据库生成数据库操作
+	 */
+	public static void mysqlGenneratorkOne(){
+		ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+		try {
+			InputStream inputStream=Resources.getResourceAsStream("table_one_mysql.yml");
+			GeneratorConfig config = mapper.readValue(inputStream, GeneratorConfig.class);
+			config.afterPropertiesSet();
+			MybatisMysqlMapperGenerator generator = new MybatisMysqlMapperGenerator(config);
+			generator.generate();
+		} catch (Exception e) {
+			throw new IllegalStateException("Generate for file table failed : " + e.getMessage(), e);
+		}
+	}
+	
+	
+	
+	
+	
+	
 	
 	public static void allGennerator(){
 		ObjectMapper mapper = new ObjectMapper(new YAMLFactory());

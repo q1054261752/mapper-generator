@@ -1,9 +1,0 @@
-package $packageName;
-
-#foreach ($clz in $importedClass)
-import $clz;
-#end
-
-@Repository("$daoName1")
-public class $className extends BaseDaoImpl<$entityName> implements $daoName {
-}

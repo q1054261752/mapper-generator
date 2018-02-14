@@ -23,7 +23,7 @@ import static com.dhcc.icore.tools.mybatis.Logger.log;
 
 /**
  * Create on 2017/3/13.
- *
+ * 这个generater是oracle数据库的生层的方法
  * @author luo
  */
 public class MybatisMapperGenerator {
@@ -332,8 +332,10 @@ public class MybatisMapperGenerator {
 	}
 
 	private TableResolver findTableResolver(String jdbcDriver) {
-		if (jdbcDriver.contains("oracle")) {
+		if (  jdbcDriver.contains("oracle")  ) {   //mysql
 			return new OracleTableResolver();
+		}else if( jdbcDriver.contains("mysql")  ){
+			return new MysqlTableResolver();
 		}
 		throw new UnsupportedOperationException("Now just support oracle database");
 	}

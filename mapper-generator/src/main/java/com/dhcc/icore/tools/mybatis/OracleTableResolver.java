@@ -8,6 +8,8 @@ package com.dhcc.icore.tools.mybatis;
 public class OracleTableResolver extends BaseTableResolver {
   @Override
   protected String getJdbcType(ColumnDesc desc, String tableName) {
+
+
     switch (desc.getColType()) {
       case "BLOB":
         return "BLOB";
@@ -60,5 +62,10 @@ public class OracleTableResolver extends BaseTableResolver {
         throw new IllegalArgumentException("Unsupported database type " + desc.getColType()
             + " for " + tableName + "." + desc.getColName());
     }
+
+
+
+
+
   }
 }

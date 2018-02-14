@@ -23,7 +23,7 @@ jdbcSchema: "ICORE3DB"
 # 生成文件的编码
 charset: "utf-8"
 # 包含的表，如果不配置则默认生成所有的表
-includeTables: {"de":["my_user"]}
+includeTables: {"de":["my_user","com_tel"]}
 # 排除的表，默认不排除任何表，对于同时又包含和排除的，先获取包含的集合再从里面排除
 excludeTables: [""]
 
