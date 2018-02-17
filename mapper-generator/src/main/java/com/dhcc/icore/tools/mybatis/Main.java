@@ -13,16 +13,22 @@ import org.apache.ibatis.io.Resources;
  */
 public class Main {
 	public static void main(String[] args) {
-		mysqlGenneratorkOne();
+		mysqlGenneratorkOne(args[0]);
 	}
 
 	/**
 	 * mysql数据库生成数据库操作
 	 */
-	public static void mysqlGenneratorkOne(){
+	public static void mysqlGenneratorkOne(String args){
+
+		if( args == null ){
+
+			throw new RuntimeException("文件yml不能为空!");
+		}
+
 		ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 		try {
-			InputStream inputStream=Resources.getResourceAsStream("table_one_mysql.yml");
+			InputStream inputStream=Resources.getResourceAsStream(args);
 			GeneratorConfig config = mapper.readValue(inputStream, GeneratorConfig.class);
 			config.afterPropertiesSet();
 			MybatisMysqlMapperGenerator generator = new MybatisMysqlMapperGenerator(config);
