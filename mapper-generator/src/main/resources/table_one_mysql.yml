@@ -1,0 +1,33 @@
+# java生成类的输出路径
+javaClassOutDir: "dao-classes"
+# dao包的名称
+daoPackageName: "com.dhcc.business"
+# dao接口类的后缀暂时未实现
+daoSuffix: "Dao"
+# Mapper文件的后缀，生成mapper文件时由 表名对应的java实体名.后缀.xml作为文件名
+mapperSuffix: "Mapper"
+# mapper 文件的输出目录
+mapperOutDir: "dao-mappers"
+# jdbc的驱动名
+jdbcDriver: "com.mysql.jdbc.Driver"
+# 数据库连接地址
+jdbcUrl: "jdbc:mysql://localhost:3306/demo01"
+# 数据库用户名
+jdbcUserName: "root"
+# 数据库用户密码
+jdbcPassword: ""
+# 数据库类型，暂时没用到
+jdbcCatalog: ""
+# 数据库的方案，对应到oracle里面为用户名的大写，对应到mysql里面为表名
+#jdbcSchema: "ICORE3DB"
+# 生成文件的编码
+charset: "utf-8"
+# 包含的表，如果不配置则默认生成所有的表
+includeTables: {"de":["file"]}
+# 排除的表，默认不排除任何表，对于同时又包含和排除的，先获取包含的集合再从里面排除
+excludeTables: [""]
+
+# 公共Dao路径
+basicDaoFQCN: "com.dhcc.business.common.dao.BaseDao"
+# 公共DaoImpl路径
+basicDaoImplFQCN: "com.dhcc.business.common.dao.BaseDaoImpl"

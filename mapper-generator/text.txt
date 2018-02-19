@@ -1,0 +1,9 @@
+用户须知: 单模块：includeTables: {"module":["table"]}
+					多模块：includeTables: {"module1":["table1","table2"],
+																	"module2":["table3","table4"]}
+
+					将module替换成表所属模块，如：de、ln、com
+					将table替换成表名
+
+1. 打开example.yml，编辑 includeTables
+2. 执行 java -jar mapper-generator-0.0.1-SNAPSHOT.jar table_one_mysql.yml
