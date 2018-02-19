@@ -169,12 +169,14 @@ public class MybatisMapperGenerator {
 			return "String";
 		case "BOOLEAN":
 			return "String";
+		case "INT":
+			return "Integer";
 		case "TINYINT":
-			return "Long";
+			return "Integer";
 		case "SMALLINT":
-			return "Long";
+			return "Integer";
 		case "INTEGER":
-			return "Long";
+			return "Integer";
 		case "BIGINT":
 			return "Long";
 		case "REAL":
@@ -187,6 +189,8 @@ public class MybatisMapperGenerator {
 			return "byte[]";
 		case "VARBINARY":
 			return "byte[]";
+		case "TEXT":
+			return "String";
 		case "LONGVARBINARY":
 			return "byte[]";
 		case "DATE":
