@@ -198,6 +198,8 @@ public class MybatisMysqlMapperGenerator
                 return "byte[]";
             case "VARBINARY":
                 return "byte[]";
+            case "TEXT":
+                return "String";
             case "LONGVARBINARY":
                 return "byte[]";
             case "DATE":
