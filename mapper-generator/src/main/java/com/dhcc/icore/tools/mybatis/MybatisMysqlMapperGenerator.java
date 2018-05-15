@@ -70,7 +70,7 @@ public class MybatisMysqlMapperGenerator
                 Map<String, Table> resolvedTables = tableResolver.resolveDatabase(connection, this.config.getJdbcCatalog(), this.config.getJdbcSchema(), includes, excludes);
                 for (Table table : resolvedTables.values()){
                     String entityName = DBUtils.toJavaClassName(table.getTableName());
-                    String entityClass = config.getDaoPackageName()+ "." + entry.getKey() + ".api.entity." + entityName + "Item";
+                    String entityClass = config.getDaoPackageName()+ "." + entry.getKey() + ".api.entity." + entityName;
                     String daoName = entityName + config.getDaoSuffix();
                     String daoClass = config.getDaoPackageName() + "." +entry.getKey() + ".dao." + daoName;
                     String daoImplName = daoName + "Impl";
@@ -87,7 +87,7 @@ public class MybatisMysqlMapperGenerator
 
 
                     // 生成实体类和Dao接口以及基础实现类
-                    String entityClassOutFile = entityOutputDir + File.separator + entityName + "Item.java";
+                    String entityClassOutFile = entityOutputDir + File.separator + entityName + ".java";
                     log("Generate table entity " + table.getBeanType() + " to file " + entityClassOutFile);
                     generateEntity(entityClassOutFile, table.getBeanType(), table);
 
@@ -285,10 +285,10 @@ public class MybatisMysqlMapperGenerator
         String className = type.substring(type.lastIndexOf(".") + 1);
         context.put("packageName", packageName);
         context.put("className", className);
-        context.put("entityName", className.substring(0, className.length() - 3) + "Item");
+        context.put("entityName", className.substring(0, className.length() - 3));
         List<String> importedClass = new ArrayList();
         importedClass.add(this.config.getBasicDaoFQCN());
-        importedClass.add(packageName.substring(0, packageName.lastIndexOf('.')) + ".api.entity." + className.substring(0, className.length() - 3) + "Item");
+        importedClass.add(packageName.substring(0, packageName.lastIndexOf('.')) + ".api.entity." + className.substring(0, className.length() - 3) );
         context.put("importedClass", importedClass);
 
         StringWriter stringWriter = new StringWriter();
@@ -326,7 +326,7 @@ public class MybatisMysqlMapperGenerator
         String packageName = type.substring(0, type.lastIndexOf('.'));
         String className = type.substring(type.lastIndexOf(".") + 1);
         String daoName = className.substring(0, className.length() - 4);
-        String entityName = className.substring(0, className.length() - 7) + "Item";
+        String entityName = className.substring(0, className.length() - 7) ;
         context.put("packageName", packageName);
         context.put("className", className);
         context.put("daoName", daoName);
